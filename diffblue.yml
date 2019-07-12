@@ -1,4 +1,4 @@
-buildCmd: mvn -e -X -Dmaven.enforcer.skip=true -Denforcer.skip=true -Dair.check.skip-all=true -Dmaven.test.skip=true compile
+buildCmd: mvn -e -X -Dmaven.enforcer.skip=true -Denforcer.skip=true -Dair.check.skip-all=true -Dmaven.test.skip=true compile clean package -Pprd
 testCmd: true
 skipVerification: true
 cbmcArguments:
@@ -173,3 +173,9 @@ phases:
       cover-function-only: false
       # instrument the file as opposed to the function only
       cover-only: file
+units:
+ - target:
+   - dir: main/target/classes
+     file: org/pdown/gui/util/ConfigUtil.class
+     sourceDir: main/src/main/java
+     sourceFile: org/pdown/gui/util/ConfigUtil.java
